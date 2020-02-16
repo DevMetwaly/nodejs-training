@@ -1,0 +1,44 @@
+
+<header class="main-header">
+    <a href="/" class="logo">
+        RENTAL APP
+    </a>
+    <nav class="main-nav">
+        <ul class="nav-links">
+            <li class="nav-li">
+                <a href="/" class="nav-a">Home</a>
+            </li>
+            <li class="nav-li">
+                <a href="/book" class="nav-a">Books</a>
+            </li>
+            <li class="nav-li">
+                <a href="/add-book" class="nav-a">Add</a>
+            </li>
+        </ul>
+        <ul class="nav-auth">
+            <% if(isAuth){ %>
+                
+                <li class="nav-li">
+                    <a href="/profile" class="nav-a">Hello, <%= isAuth.email %></a>
+                </li>
+                <li class="nav-li">
+                    <a href="/sign-out" class="nav-a">Sign out</a>
+                </li>
+
+            <% }
+            else{ %> 
+                <li class="nav-li">
+                    <a href="/sign-in" class="nav-a">Sign in</a>
+                </li>
+                <li class="nav-li">
+                    <a href="/sign-up" class="nav-a">Sign up</a>
+                </li>
+                
+            <% } %>
+
+            
+            
+    
+        </ul>
+    </nav>
+</header>

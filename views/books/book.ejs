@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <%- include('../layouts/basic-head') %>
+    <link rel="stylesheet" href="/css/books/book.css">
+    <link rel="stylesheet" href="/css/books/book-control.css">
+    <title>Books</title>
+</head>
+
+<body>
+    <%- include('../layouts/navbar') %>
+
+    <div class="book-main-div">
+
+        <div class="book-card <%= book.quantity==0? 'book-card-empty':''%>" >
+            <form 
+                class="delete-button-wrapper" 
+                method="POST"
+                action="/book/delete/<%= book.id %>"
+            >
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                <button class="button-delete" type="submit">x</button>
+            </form>
+            <% if(!book.quantity) { %>
+            <div class="empty-sticker">
+                Empty
+            </div>
+            <% } %>
+            <div class="card-head">
+                <%= book.title %>
+            </div>
+            <img class="card-img" src="/img/card-img.jpg" alt="" />
+            <div class="card-footer">
+                <h4 class="card-stock">Stock:
+                    <%= book.quantity %>
+                </h4>
+                <h8 class="card-description">
+                    <%= book.description %>
+                </h8>
+            </div>
+            <form method="POST" action="/book/rent/<%= book.id %>">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                <% if(isAuth){ %>
+                <button
+                    class="button <%= book.quantity==0? 'button-disabled':''%>"
+                    type="submit" 
+                    <%= book.quantity==0? 'disabled': ''%>
+                > 
+                    Rent IT NOW
+                </button>
+                <% } %>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row control-main-div">
+            <form role="form" action="/book/<%= book.id %>" method="POST" class="control-form col-lg-4 col-md-6 col-sm-8 col-xs-10">
+                <div class="form-group">
+                    <label for="book_title">Book Title</label>
+                    <input value="<%= book.title %>" type="text" class="form-control" id="book_title" name="book_title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">description</label>
+                    <input value="<%= book.description %>" type="text" class="form-control" id="description" name="description" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">quantity</label>
+                    <input value="<%= book.quantity %>" type="number" class="form-control" id="quantity" name="quantity" required>
+                </div>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                <button type="submit" class="btn btn-defaul button">Edit</button>
+            </form>
+            
+        </div>
+        
+    </div>
+
+
+</body>
+
+
+</html>

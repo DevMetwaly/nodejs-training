@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <!-- page Meta -->
+    <%- include('../layouts/basic-head') %>
+
+        <title>Sign up</title>
+
+</head>
+
+<body>
+    <%- include('../layouts/navbar') %>
+        <div class="container">
+
+            <div class="row control-main-div">
+                <form role="form" action="/sign-up" method="POST" class="control-form col-lg-4 col-md-6 col-sm-8 col-xs-10">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">confirm password</label>
+                        <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
+                    </div>
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                    <button type="submit" class="btn btn-defaul button">Sign Up</button>
+                </form>
+            </div>
+        </div>
+
+</body>
+
+
+</html>

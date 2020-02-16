@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <%- include('../layouts/basic-head') %>
+    <link rel="stylesheet" href="/css/books/book.css">
+    <title>Books</title>
+</head>
+
+<body>
+    <%- include('../layouts/navbar') %>
+
+    <div class="book-main-div">
+        <% for (let book of books) { %>
+            <form 
+             class="book-card <%= book.quantity==0? 'book-card-empty':''%>" 
+             method="POST" 
+             action="/book/rent/<%= book.id %>"
+             onClick="window.location.href='/book/<%= book.id %>'"
+             >
+                <% if(!book.quantity) { %>
+                    <div class="empty-sticker">
+                        Empty
+                    </div>
+                <% } %>
+                <div class="card-head">
+                    <%= book.title %>
+                </div>
+                <img class="card-img" src="img/card-img.jpg" alt="" />
+                <div class="card-footer">
+                    <h4 class="card-stock">Stock:
+                        <%= book.quantity %>
+                    </h4>
+                    <h8 class="card-description">
+                        <%= book.description %>
+                    </h8>
+                </div>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                <% if(isAuth){ %>
+                    <button type="submit" <%= book.quantity==0? 'disabled':''%> class="button <%= book.quantity==0? 'button-disabled':''%>"> Rent IT NOW</button>
+                <% } %>
+            </form>
+            <% } %>
+
+        </div>
+
+</body>
+
+
+</html>

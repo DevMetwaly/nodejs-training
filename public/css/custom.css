@@ -1,0 +1,123 @@
+*{
+    box-sizing: border-box;
+    
+}
+.main-header{
+    display: flex;
+    background-color: darkgreen
+} 
+.logo{
+    display: flex;
+    align-items: center;
+    flex: 0 1 200px;
+    color: tan;
+    font-size: 22px;
+    font-family: cursive    ;
+    justify-content: center;
+}
+.logo:hover{
+    color:tan;
+    text-decoration: none;
+}
+.main-nav{
+    display: flex;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    
+}
+.nav-links{
+    display: flex;
+    flex: 1 1 70%;
+    justify-content: flex-start;
+    padding: 0px;
+    margin: 0px;
+}
+.nav-auth{
+    display: flex;
+    flex: 1 1 30%;
+    justify-content: flex-end;
+    padding: 0px;
+    margin: 0px;
+}
+.nav-li{
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+   
+    min-width: 100px;
+    flex-shrink: 1;
+    flex-grow: 0;
+}
+.nav-a{
+    color: white;
+    font-size: 18px;
+}
+.nav-a:hover{
+    color: lightgreen;
+    text-decoration: none;
+}
+label{
+    text-transform: capitalize
+}
+
+.button{
+    
+    background-color: darkgreen;
+    color: white;
+    text-transform: uppercase;
+    padding: 12px;
+    border: 3px solid white;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+.delete-button-wrapper{
+    position: absolute;
+    right: -12px;
+    top: -12px;
+}
+.button-delete{
+    border-radius: 100%;
+    border: none;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: cursive;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    border: 3px solid transparent;
+}
+.button-delete:hover{
+    transform: scale(1.2,1.2);
+    border: 3px solid lightgreen;
+    
+}
+.button:hover{
+    border: 3px solid lightgreen;
+    
+}
+.control-main-div{
+    min-height: 500px;
+
+}
+.control-form{
+    margin: auto !important;
+}
+.button-disabled{
+    background-color: gray;
+}
+.empty-sticker{
+    padding: 0px 7px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 90px;
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    background-color: black;
+    color: white;
+}
+
+
